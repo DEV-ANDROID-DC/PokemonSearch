@@ -10,7 +10,7 @@ import io.reactivex.Single
 class GetPokemonDescription(private val speciesRepository: IPokemonSpeciesRepository,
                             threadExecutor: ThreadExecutor,
                             postExecutionThread: PostExecutionThread) : SingleUseCase<PokemonSpeciesResponse, String, String>(threadExecutor, postExecutionThread){
-    override fun buildUseCaseObservable(
+    public override fun buildUseCaseObservable(
         pokemonName: String?,
         arg2: String?
     ): Single<PokemonSpeciesResponse> {

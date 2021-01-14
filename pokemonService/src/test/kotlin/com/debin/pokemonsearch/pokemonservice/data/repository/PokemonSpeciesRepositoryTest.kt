@@ -46,6 +46,8 @@ class PokemonSpeciesRepositoryTest  {
         val pokemonName = PokemonFactory.getPokemonName()
         val error = PokemonFactory.getError()
         Mockito.`when`(mockDataSource.getPokemonSpeciesAsync(pokemonName)).thenReturn(Single.error(error))
+        val testObserver = repository.getPokemonSpecies(pokemonName).toObservable().test()
+        testObserver.assertError(error)
     }
 
     @Test

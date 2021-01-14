@@ -9,7 +9,7 @@ import io.reactivex.Single
 class GetPokemonSprites(private val pokemonRepository: IPokemonRepository,
                         threadExecutor: ThreadExecutor,
                         postExecutionThread: PostExecutionThread) : SingleUseCase<PokemonResponse, String, String>(threadExecutor, postExecutionThread) {
-    override fun buildUseCaseObservable(pokemonName: String?, arg2: String?): Single<PokemonResponse> {
+    public override fun buildUseCaseObservable(pokemonName: String?, arg2: String?): Single<PokemonResponse> {
        return pokemonRepository.getPokemon(pokemonName)
     }
 
