@@ -1,0 +1,4 @@
+include ':pokemonCore'
+include ':pokemonService'
+include ':app'
+rootProject.name = "Pokemon Search"
