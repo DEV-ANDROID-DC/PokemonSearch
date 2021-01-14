@@ -4,9 +4,6 @@ import com.debin.pokemonsearch.pokemonservice.data.datasource.IPokemonDataSource
 import com.debin.pokemonsearch.pokemonservice.data.repository.utils.PokemonFactory
 import com.nhaarman.mockito_kotlin.mock
 import com.nhaarman.mockito_kotlin.verify
-import io.mockk.impl.annotations.MockK
-import io.mockk.mockk
-import io.mockk.verify
 import io.reactivex.Single
 import org.junit.After
 import org.junit.Before
