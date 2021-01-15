@@ -13,7 +13,7 @@ android {
         targetSdkVersion 30
         versionCode 1
         versionName "1.0"
-
+        multiDexEnabled true
         testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
     }
 
@@ -32,7 +32,7 @@ android {
 
 dependencies {
     implementation fileTree(dir: "libs", include: ["*.jar"])
-
+    implementation project(':pokemonService')
     implementation appDependencies.kotlin
     implementation appDependencies.core
     implementation appDependencies.appCompact
@@ -51,6 +51,8 @@ dependencies {
     implementation appDependencies.rxAndroid
     implementation appDependencies.viewModel
     implementation appDependencies.viewmodelState
+
+    implementation appDependencies.loggingInterceptor
 
     testImplementation appTestDependencies.jUnit
     androidTestImplementation appTestDependencies.extJunit

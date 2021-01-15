@@ -19,6 +19,8 @@ ext {
     def viewModelLifeCycleVersion = '2.1.0'
     def viewModelSavedStateVersion = "2.2.0"
 
+    def loggingInterceptorVersion = "4.7.2"
+
 
     appDependencies = [
 
@@ -38,7 +40,8 @@ ext {
             rxJava         : "io.reactivex.rxjava2:rxjava:$rxJavaVersion",
             rxAndroid      : "io.reactivex.rxjava2:rxandroid:$rxAndroidVersion",
             viewModel      : "androidx.lifecycle:lifecycle-viewmodel-ktx:$viewModelLifeCycleVersion",
-            viewmodelState : "androidx.lifecycle:lifecycle-viewmodel-savedstate:$viewModelSavedStateVersion"
+            viewmodelState : "androidx.lifecycle:lifecycle-viewmodel-savedstate:$viewModelSavedStateVersion",
+            loggingInterceptor : "com.squareup.okhttp3:logging-interceptor:$loggingInterceptorVersion"
 
 
     ]
