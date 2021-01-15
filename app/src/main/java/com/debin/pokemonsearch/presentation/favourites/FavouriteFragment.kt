@@ -1,4 +1,4 @@
-package com.debin.pokemonsearch.presentation
+package com.debin.pokemonsearch.presentation.favourites
 
 import android.os.Bundle
 import androidx.fragment.app.Fragment

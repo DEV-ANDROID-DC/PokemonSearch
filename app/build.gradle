@@ -1,6 +1,7 @@
 apply plugin: 'com.android.application'
 apply plugin: 'kotlin-android'
 apply plugin: 'kotlin-android-extensions'
+apply plugin: 'kotlin-kapt'
 apply from: '../dependencies.gradle'
 
 android {
@@ -52,7 +53,13 @@ dependencies {
     implementation appDependencies.viewModel
     implementation appDependencies.viewmodelState
 
+    implementation appDependencies.glide
+    kapt appDependencies.glideCompiler
+
     implementation appDependencies.loggingInterceptor
+
+    testImplementation appTestDependencies.coreRuntime
+    testImplementation appTestDependencies.coreTesting
 
     testImplementation appTestDependencies.jUnit
     androidTestImplementation appTestDependencies.extJunit

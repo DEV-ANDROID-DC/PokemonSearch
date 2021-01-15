@@ -9,6 +9,7 @@ ext {
 
     def junitVersion = "4.12"
     def testExtVersion = "1.1.2"
+    def archCoreVersion = '2.1.0'
     def espressoCoreVersion = "3.3.0"
     def mockitoKotlinVersion = "1.5.0"
 
@@ -21,28 +22,31 @@ ext {
 
     def loggingInterceptorVersion = "4.7.2"
 
+    def glideVersion = "4.8.0"
+
 
     appDependencies = [
 
-            kotlin         : "org.jetbrains.kotlin:kotlin-stdlib:$kotlinVersion",
-            core           : "androidx.core:core-ktx:$coreVersion",
-            appCompact     : "androidx.appcompat:appcompat:$appCompactVersion",
-            constrainLayout: "androidx.constraintlayout:constraintlayout:$constrainLayoutVersion",
-            support        : "androidx.legacy:legacy-support-v4:$supportVersion",
-            navFragment    : "androidx.navigation:navigation-fragment-ktx:$navVersion",
-            navUI          : "androidx.navigation:navigation-ui-ktx:$navVersion",
-            retrofit       : "com.squareup.retrofit2:retrofit:$retrofitVersion",
-            rxJavaAdapter  : "com.squareup.retrofit2:adapter-rxjava2:$retrofitVersion",
-            gsonConverter  : "com.squareup.retrofit2:converter-gson:$retrofitVersion",
-            koin           : "org.koin:koin-android:$koinVersion",
-            koinScope      : "org.koin:koin-android-scope:$koinVersion",
-            koinViewModel  : "org.koin:koin-android-viewmodel:$koinVersion",
-            rxJava         : "io.reactivex.rxjava2:rxjava:$rxJavaVersion",
-            rxAndroid      : "io.reactivex.rxjava2:rxandroid:$rxAndroidVersion",
-            viewModel      : "androidx.lifecycle:lifecycle-viewmodel-ktx:$viewModelLifeCycleVersion",
-            viewmodelState : "androidx.lifecycle:lifecycle-viewmodel-savedstate:$viewModelSavedStateVersion",
-            loggingInterceptor : "com.squareup.okhttp3:logging-interceptor:$loggingInterceptorVersion"
-
+            kotlin            : "org.jetbrains.kotlin:kotlin-stdlib:$kotlinVersion",
+            core              : "androidx.core:core-ktx:$coreVersion",
+            appCompact        : "androidx.appcompat:appcompat:$appCompactVersion",
+            constrainLayout   : "androidx.constraintlayout:constraintlayout:$constrainLayoutVersion",
+            support           : "androidx.legacy:legacy-support-v4:$supportVersion",
+            navFragment       : "androidx.navigation:navigation-fragment-ktx:$navVersion",
+            navUI             : "androidx.navigation:navigation-ui-ktx:$navVersion",
+            retrofit          : "com.squareup.retrofit2:retrofit:$retrofitVersion",
+            rxJavaAdapter     : "com.squareup.retrofit2:adapter-rxjava2:$retrofitVersion",
+            gsonConverter     : "com.squareup.retrofit2:converter-gson:$retrofitVersion",
+            koin              : "org.koin:koin-android:$koinVersion",
+            koinScope         : "org.koin:koin-android-scope:$koinVersion",
+            koinViewModel     : "org.koin:koin-android-viewmodel:$koinVersion",
+            rxJava            : "io.reactivex.rxjava2:rxjava:$rxJavaVersion",
+            rxAndroid         : "io.reactivex.rxjava2:rxandroid:$rxAndroidVersion",
+            viewModel         : "androidx.lifecycle:lifecycle-viewmodel-ktx:$viewModelLifeCycleVersion",
+            viewmodelState    : "androidx.lifecycle:lifecycle-viewmodel-savedstate:$viewModelSavedStateVersion",
+            loggingInterceptor: "com.squareup.okhttp3:logging-interceptor:$loggingInterceptorVersion",
+            glide             : "com.github.bumptech.glide:glide:$glideVersion",
+            glideCompiler     : "com.github.bumptech.glide:compiler:$glideVersion"
 
     ]
 
@@ -50,9 +54,10 @@ ext {
 
             jUnit       : "junit:junit:$junitVersion",
             extJunit    : "androidx.test.ext:junit:$testExtVersion",
-            mockito: "com.nhaarman:mockito-kotlin:$mockitoKotlinVersion",
-            espressoCore: "androidx.test.espresso:espresso-core:$espressoCoreVersion"
-
+            mockito     : "com.nhaarman:mockito-kotlin:$mockitoKotlinVersion",
+            espressoCore: "androidx.test.espresso:espresso-core:$espressoCoreVersion",
+            coreRuntime : "androidx.arch.core:core-runtime:$archCoreVersion",
+            coreTesting : "androidx.arch.core:core-testing:$archCoreVersion"
 
     ]
 
