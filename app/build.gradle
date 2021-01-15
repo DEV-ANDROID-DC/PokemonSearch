@@ -56,6 +56,9 @@ dependencies {
 
     testImplementation appTestDependencies.jUnit
     androidTestImplementation appTestDependencies.extJunit
+    implementation (appTestDependencies.mockito) {
+        exclude group: 'org.jetbrains.kotlin', module: 'kotlin-reflect'
+    }
     androidTestImplementation appTestDependencies.espressoCore
 
 }

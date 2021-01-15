@@ -50,7 +50,9 @@ ext {
 
             jUnit       : "junit:junit:$junitVersion",
             extJunit    : "androidx.test.ext:junit:$testExtVersion",
+            mockito: "com.nhaarman:mockito-kotlin:$mockitoKotlinVersion",
             espressoCore: "androidx.test.espresso:espresso-core:$espressoCoreVersion"
+
 
     ]
 
