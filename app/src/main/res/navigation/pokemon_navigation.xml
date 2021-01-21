@@ -13,10 +13,12 @@
         <action
             android:id="@+id/action_searchFragment_to_favouriteFragment"
             app:destination="@id/favouriteFragment" />
+
     </fragment>
     <fragment
         android:id="@+id/favouriteFragment"
         android:name="com.debin.pokemonsearch.presentation.favourites.FavouriteFragment"
         android:label="fragment_favourite"
         tools:layout="@layout/fragment_favourite" />
+
 </navigation>

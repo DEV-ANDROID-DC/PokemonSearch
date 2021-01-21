@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+     <declare-styleable name="DescriptionSprites">
+         <attr name="description" format="string"/>
+         <attr name="backFemale" format="string"/>
+         <attr name="frontFemale" format="string"/>
+         <attr name="backShiny" format="string"/>
+         <attr name="frontShiny" format="string"/>
+     </declare-styleable>
+</resources>

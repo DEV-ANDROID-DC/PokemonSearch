@@ -1,4 +1,4 @@
-package com.debin.pokemonsearch.framework.utils
+package com.debin.pokemonsearch.presentation.utils
 
 sealed class Resource<out T> {
     data class Loading(val mgs : String?=null) : Resource<Nothing>()

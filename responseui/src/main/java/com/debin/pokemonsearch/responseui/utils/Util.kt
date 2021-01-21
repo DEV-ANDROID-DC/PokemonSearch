@@ -1,11 +1,11 @@
-package com.debin.pokemonsearch.framework.utils
+package com.debin.pokemonsearch.responseui.utils
 
 import android.content.Context
 import android.widget.ImageView
 import androidx.swiperefreshlayout.widget.CircularProgressDrawable
 import com.bumptech.glide.Glide
 import com.bumptech.glide.request.RequestOptions
-import com.debin.pokemonsearch.R
+import com.debin.pokemonsearch.responseui.R
 
 
 fun getProgressDrawable(context: Context): CircularProgressDrawable {

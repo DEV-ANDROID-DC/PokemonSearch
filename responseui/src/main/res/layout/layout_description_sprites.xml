@@ -1,0 +1,74 @@
+<?xml version="1.0" encoding="utf-8"?>
+<merge
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+<androidx.constraintlayout.widget.ConstraintLayout
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content">
+
+    <TextView
+        android:id="@+id/tv_description"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:padding="@dimen/dimen16"
+        android:text="test test test test"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="parent"/>
+
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/rv_strips"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        app:layoutManager="androidx.recyclerview.widget.GridLayoutManager"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/tv_description"/>
+
+<!--    <ImageView-->
+<!--        android:id="@+id/back_female"-->
+<!--        android:layout_width="@dimen/dimen150"-->
+<!--        android:layout_height="@dimen/dimen150"-->
+<!--        android:background="@mipmap/ic_launcher"-->
+<!--        android:contentDescription="@string/sprite"-->
+<!--        app:layout_constraintStart_toStartOf="parent"-->
+<!--        app:layout_constraintEnd_toStartOf="@+id/front_female"-->
+<!--        app:layout_constraintTop_toBottomOf="@+id/tv_description"/>-->
+
+<!--    <ImageView-->
+<!--        android:id="@+id/front_female"-->
+<!--        android:layout_width="@dimen/dimen150"-->
+<!--        android:layout_height="@dimen/dimen150"-->
+<!--        android:background="@mipmap/ic_launcher"-->
+<!--        android:contentDescription="@string/sprite"-->
+<!--        app:layout_constraintStart_toEndOf="@+id/back_female"-->
+<!--        app:layout_constraintTop_toBottomOf="@+id/tv_description"-->
+<!--        app:layout_constraintEnd_toEndOf="parent"/>-->
+
+<!--    <ImageView-->
+<!--        android:id="@+id/back_shiny"-->
+<!--        android:layout_width="@dimen/dimen150"-->
+<!--        android:layout_height="@dimen/dimen150"-->
+<!--        android:background="@mipmap/ic_launcher"-->
+<!--        android:layout_marginTop="@dimen/dimen16"-->
+<!--        android:contentDescription="@string/sprite"-->
+<!--        app:layout_constraintEnd_toStartOf="@+id/front_shiny"-->
+<!--        app:layout_constraintTop_toBottomOf="@+id/back_female"-->
+<!--        app:layout_constraintStart_toStartOf="parent"/>-->
+
+<!--    <ImageView-->
+<!--        android:id="@+id/front_shiny"-->
+<!--        android:layout_width="@dimen/dimen150"-->
+<!--        android:layout_height="@dimen/dimen150"-->
+<!--        android:layout_marginTop="@dimen/dimen16"-->
+<!--        android:background="@mipmap/ic_launcher"-->
+<!--        android:contentDescription="@string/sprite"-->
+<!--        app:layout_constraintStart_toEndOf="@+id/back_shiny"-->
+<!--        app:layout_constraintTop_toBottomOf="@+id/front_female"-->
+<!--        app:layout_constraintEnd_toEndOf="parent"/>-->
+
+</androidx.constraintlayout.widget.ConstraintLayout>
+</merge>

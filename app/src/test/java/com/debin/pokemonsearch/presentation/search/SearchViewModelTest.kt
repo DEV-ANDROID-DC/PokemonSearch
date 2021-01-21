@@ -2,7 +2,7 @@ package com.debin.pokemonsearch.presentation.search
 
 import androidx.arch.core.executor.testing.InstantTaskExecutorRule
 import androidx.lifecycle.MediatorLiveData
-import com.debin.pokemonsearch.framework.utils.Resource
+import com.debin.pokemonsearch.presentation.utils.Resource
 import com.debin.pokemonsearch.pokemonservice.domain.pokemon.PokemonResponse
 import com.debin.pokemonsearch.pokemonservice.domain.pokemonspices.PokemonSpeciesResponse
 import com.debin.pokemonsearch.pokemonservice.interactors.GetPokemonDescription
