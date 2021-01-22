@@ -1,7 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="CompilerConfiguration">
-    <bytecodeTargetLevel>
+    <bytecodeTargetLevel target="1.7">
+      <module name="Pokemon_Search.app" target="1.8" />
+      <module name="Pokemon_Search.responseui" target="1.8" />
       <module name="pokemonCore" target="1.7" />
       <module name="pokemonService" target="1.7" />
     </bytecodeTargetLevel>

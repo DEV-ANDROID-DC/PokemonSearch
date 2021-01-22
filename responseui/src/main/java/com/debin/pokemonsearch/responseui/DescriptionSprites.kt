@@ -17,12 +17,11 @@ class DescriptionSprites @JvmOverloads constructor(
 ) : ConstraintLayout(ctx, attributeSet, defStyleAttr) {
 
     private var binding: LayoutDescriptionSpritesBinding
-    private var adapter: SpriteAdapter
+    private lateinit var adapter: SpriteAdapter
 
     init {
         val inflater = ctx.getSystemService(Context.LAYOUT_INFLATER_SERVICE) as LayoutInflater
         binding = LayoutDescriptionSpritesBinding.inflate(inflater, this)
-        adapter = SpriteAdapter(arrayListOf())
     }
 
     fun setDescription(description: String) {
@@ -30,6 +29,7 @@ class DescriptionSprites @JvmOverloads constructor(
     }
 
     fun setSprites(spriteList : List<String>) {
+        adapter = SpriteAdapter(arrayListOf())
         binding.rvStrips.adapter = adapter
         adapter.updateSprites(spriteList)
     }

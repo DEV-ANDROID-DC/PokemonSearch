@@ -11,13 +11,15 @@ import com.debin.pokemonsearch.pokemonservice.interactors.GetPokemonSprites
 import io.reactivex.observers.DisposableSingleObserver
 
 
-open class SearchViewModel(private val getPokemonDescription: GetPokemonDescription,
+class SearchViewModel(private val getPokemonDescription: GetPokemonDescription,
                       private val getPokemonSprites: GetPokemonSprites) : ViewModel() {
 
     private val _pokemon = MutableLiveData<Resource<PokemonResponse>>()
+    private val _pokemonSprites = MutableLiveData<Resource<List<String>>>()
     private val _pokemonSpecies = MutableLiveData<Resource<PokemonSpeciesResponse>>()
     val pokemon : LiveData<Resource<PokemonResponse>> get() = _pokemon
     val pokemonSpecies : LiveData<Resource<PokemonSpeciesResponse>> get() = _pokemonSpecies
+    val pokemonSprites : LiveData<Resource<List<String>>> get() = _pokemonSprites
 
 
     fun getPokemonDetails(pokemonName : String) {

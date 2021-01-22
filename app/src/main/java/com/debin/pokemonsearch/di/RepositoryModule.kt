@@ -7,6 +7,6 @@ import com.debin.pokemonsearch.pokemonservice.domain.repository.IPokemonSpeciesR
 import org.koin.dsl.module
 
 val repositoryModule = module {
-    single<IPokemonRepository> { PokemonRepository(get()) }
+    single<IPokemonRepository> { PokemonRepository(get(), get()) }
     single<IPokemonSpeciesRepository> { PokemonSpeciesRepository(get()) }
 }

@@ -6,7 +6,7 @@ import org.koin.android.ext.koin.androidContext
 import org.koin.core.context.startKoin
 
 class PokemonApp : Application(){
-    val modules = listOf(apiModule, dataSourceModule, repositoryModule, viewModelModule, useCaseModule)
+    private val modules = listOf(apiModule, dataSourceModule, mapperModule, repositoryModule, useCaseModule, viewModelModule)
     override fun onCreate() {
         super.onCreate()
         startKoin {

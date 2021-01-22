@@ -26,6 +26,7 @@ class SearchFragment : Fragment() {
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
             searchClick()
+            observePokemon()
             observePokemonSpecies()
     }
 
@@ -37,6 +38,9 @@ class SearchFragment : Fragment() {
 
                 }
                 is Resource.Success -> {
+                    val sprites = result.result.sprites
+                    updateStripsToView(spritesList(sprites.back_female, sprites.back_shiny_female, sprites.back_default, sprites.front_female,
+                              sprites.front_shiny_female, sprites.back_shiny, sprites.front_default, sprites.front_shiny))
 
                 }
                 is Resource.Error -> {
@@ -67,8 +71,8 @@ class SearchFragment : Fragment() {
       binding.descriptionSprites.setDescription(description)
     }
 
-    private fun updateStripsToView() {
-
+    private fun updateStripsToView(sprites : List<String>) {
+      binding.descriptionSprites.setSprites(sprites)
     }
 
 
@@ -87,6 +91,13 @@ class SearchFragment : Fragment() {
         } else {
             println("$TAG :: Pokemon Name is Empty")
         }
+    }
+
+    private fun spritesList(backFemale : String, backShinyFemale : String, backDefault : String,
+                            frontFemale : String, frontShinyFemale : String, backShiny : String,
+                            frontDefault : String, frontShiny : String) : List<String> {
+        return listOf(backFemale, backShinyFemale, backDefault,
+            frontFemale, frontShinyFemale, backShiny, frontDefault, frontShiny)
     }
 
 }
