@@ -14,7 +14,6 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:padding="@dimen/dimen16"
-        android:text="test test test test"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintTop_toTopOf="parent"
@@ -30,6 +29,52 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/tv_description"
         app:layout_constraintBottom_toBottomOf="parent"/>
+
+    <ProgressBar
+        android:id="@+id/progressBarForDescription"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:visibility="gone"
+        android:layout_marginEnd="@dimen/dimen32"
+        android:layout_marginRight="@dimen/dimen32"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="@id/tv_description"
+        app:layout_constraintBottom_toBottomOf="@+id/tv_description"/>
+
+
+    <ProgressBar
+        android:id="@+id/progressBarForSprites"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginEnd="@dimen/dimen16"
+        android:visibility="gone"
+        android:layout_marginRight="@dimen/dimen16"
+        app:layout_constraintTop_toTopOf="@+id/rv_strips"
+        app:layout_constraintStart_toStartOf="@+id/rv_strips"
+        app:layout_constraintEnd_toEndOf="@+id/rv_strips"
+        app:layout_constraintBottom_toBottomOf="@+id/rv_strips"/>
+
+    <TextView
+        android:id="@+id/tv_error_description"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:padding="@dimen/dimen16"
+        android:visibility="gone"
+        app:layout_constraintTop_toTopOf="@+id/tv_description"
+        app:layout_constraintStart_toStartOf="@+id/tv_description"
+        app:layout_constraintEnd_toEndOf="@+id/tv_description"
+        app:layout_constraintBottom_toBottomOf="@+id/tv_description"/>
+
+    <TextView
+        android:id="@+id/tv_error_sprites"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:padding="@dimen/dimen16"
+        android:visibility="gone"
+        app:layout_constraintTop_toTopOf="@+id/rv_strips"
+        app:layout_constraintStart_toStartOf="@+id/rv_strips"
+        app:layout_constraintEnd_toEndOf="@+id/rv_strips"
+        app:layout_constraintBottom_toBottomOf="@+id/rv_strips"/>
 
 
 </androidx.constraintlayout.widget.ConstraintLayout>

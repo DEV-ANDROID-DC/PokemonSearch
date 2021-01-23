@@ -6,4 +6,6 @@
     <string name="favourite">Favourite</string>
     <string name="search_pokemon">search pokemon</string>
     <string name="search_image_button">Search image button</string>
+    <string name="add_to_favourite">Add to favourite</string>
+    <string name="search_button">Search Button</string>
 </resources>

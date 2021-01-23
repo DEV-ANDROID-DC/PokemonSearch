@@ -3,11 +3,9 @@ package com.debin.pokemonsearch.responseui
 import android.content.Context
 import android.util.AttributeSet
 import android.view.LayoutInflater
+import android.view.View
 import androidx.constraintlayout.widget.ConstraintLayout
 import com.debin.pokemonsearch.responseui.databinding.LayoutDescriptionSpritesBinding
-import com.debin.pokemonsearch.responseui.utils.getProgressDrawable
-import com.debin.pokemonsearch.responseui.utils.loadImage
-import kotlinx.android.synthetic.main.card_sprite.view.*
 
 
 class DescriptionSprites @JvmOverloads constructor(
@@ -33,5 +31,42 @@ class DescriptionSprites @JvmOverloads constructor(
         binding.rvStrips.adapter = adapter
         adapter.updateSprites(spriteList)
     }
+
+    fun showErrorDescription(error : String) {
+        binding.tvErrorDescription.visibility = View.VISIBLE
+        binding.tvErrorDescription.text = error
+    }
+
+    fun showErrorSprites(error: String) {
+        binding.tvErrorSprites.visibility = View.VISIBLE
+        binding.tvErrorSprites.text = error
+    }
+
+    fun hideErrorDescription() {
+        binding.tvErrorDescription.visibility = View.GONE
+        binding.tvErrorDescription.text = ""
+    }
+
+    fun hideErrorSprites() {
+        binding.tvErrorSprites.visibility = View.GONE
+        binding.tvErrorSprites.text = ""
+    }
+
+    fun showProgressDescription() {
+        binding.progressBarForDescription.visibility = View.VISIBLE
+    }
+
+    fun hideProgressDescription() {
+        binding.progressBarForDescription.visibility = View.GONE
+    }
+
+    fun showProgressStripes() {
+        binding.progressBarForSprites.visibility = View.VISIBLE
+    }
+
+    fun hideProgressStripes() {
+        binding.progressBarForSprites.visibility = View.GONE
+    }
+
 
 }

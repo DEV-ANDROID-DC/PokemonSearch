@@ -23,10 +23,12 @@ class SearchViewModel(private val getPokemonDescription: GetPokemonDescription,
 
 
     fun getPokemonDetails(pokemonName : String) {
+        _pokemon.value = Resource.Loading()
         getPokemonSprites.execute(PokemonSubscriber(), pokemonName)
     }
 
     fun getPokemonSpeciesDetails(pokemonName : String) {
+        _pokemonSpecies.value = Resource.Loading()
         getPokemonDescription.execute(PokemonSpeciesSubscriber(), pokemonName)
     }
 
