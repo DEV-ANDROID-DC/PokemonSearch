@@ -6,6 +6,6 @@ import com.debin.pokemonsearch.pokemonservice.domain.pokemon.PokemonResponse
 
 class PokemonResponseEntityMapper(private val spritesEntityMapper: SpritesEntityMapper) : EntityMapper<PokemonResponseEntity, PokemonResponse>() {
     override fun mapFromRemote(pokemonResponseEntity: PokemonResponseEntity): PokemonResponse {
-        return PokemonResponse(spritesEntityMapper.mapSpritesFromRemote(pokemonResponseEntity.spritesEntity))
+        return PokemonResponse(spritesEntityMapper.mapFromRemote(pokemonResponseEntity.sprites))
     }
 }

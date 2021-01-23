@@ -11,7 +11,6 @@ class PokemonRepository(private val dataSource: IPokemonDataSource,
 ) : IPokemonRepository {
     override fun getPokemon(name: String?): Single<PokemonResponse> {
        return dataSource.getPokemonAsync(name).map {
-           val entiry = it
            pokemonResponseEntityMapper.mapFromRemote(it)
        }
     }

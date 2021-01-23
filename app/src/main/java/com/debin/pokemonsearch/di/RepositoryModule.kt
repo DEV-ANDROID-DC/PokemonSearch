@@ -8,5 +8,5 @@ import org.koin.dsl.module
 
 val repositoryModule = module {
     single<IPokemonRepository> { PokemonRepository(get(), get()) }
-    single<IPokemonSpeciesRepository> { PokemonSpeciesRepository(get()) }
+    single<IPokemonSpeciesRepository> { PokemonSpeciesRepository(get(), get()) }
 }
