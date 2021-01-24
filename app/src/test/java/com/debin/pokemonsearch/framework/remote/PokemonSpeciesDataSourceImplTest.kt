@@ -1,6 +1,7 @@
 package com.debin.pokemonsearch.framework.remote
 
 import com.debin.pokemonsearch.framework.network.ApiService
+import com.debin.pokemonsearch.pokemonservice.data.models.pokemonSpeciesEntity.PokemonSpeciesResponseEntity
 import com.debin.pokemonsearch.pokemonservice.domain.pokemon.PokemonResponse
 import com.debin.pokemonsearch.pokemonservice.domain.pokemonspices.PokemonSpeciesResponse
 import com.debin.pokemonsearch.utils.PokemonFactory
@@ -34,7 +35,7 @@ class PokemonSpeciesDataSourceImplTest {
     @Test
     fun getPokemonSpeciesRepositoryComplete_without_errors() {
         val pokemonName = PokemonFactory.getPokemonName()
-        val pokemonResponse = PokemonFactory.makePokemonSpeciesResponse()
+        val pokemonResponse = PokemonFactory.makePokemonSpeciesResponseEntity()
         stubWheneverThenReturn(Single.just(pokemonResponse))
         val testObserver = dataSourceImpl.getPokemonSpeciesAsync(pokemonName).toObservable().test()
         testObserver.assertComplete()
@@ -55,7 +56,7 @@ class PokemonSpeciesDataSourceImplTest {
     @Test
     fun getPokemonSpeciesRepository_returns_data() {
         val pokemonName = PokemonFactory.getPokemonName()
-        val pokemonResponse = PokemonFactory.makePokemonSpeciesResponse()
+        val pokemonResponse = PokemonFactory.makePokemonSpeciesResponseEntity()
         stubWheneverThenReturn(Single.just(pokemonResponse))
         val testObserver = dataSourceImpl.getPokemonSpeciesAsync(pokemonName).toObservable().test()
         testObserver.assertComplete()
@@ -64,7 +65,7 @@ class PokemonSpeciesDataSourceImplTest {
         testObserver.assertValue(pokemonResponse)
     }
 
-    private fun stubWheneverThenReturn(single : Single<PokemonSpeciesResponse>) {
+    private fun stubWheneverThenReturn(single : Single<PokemonSpeciesResponseEntity>) {
         whenever(mockApiService.getPokemonSpecies(any())).thenReturn(single)
     }
 }

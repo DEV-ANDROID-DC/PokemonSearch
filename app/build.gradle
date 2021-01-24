@@ -60,6 +60,11 @@ dependencies {
     implementation appDependencies.viewModel
     implementation appDependencies.viewmodelState
 
+    implementation 'androidx.room:room-runtime:2.1.0'
+    implementation "androidx.room:room-ktx:2.1.0"
+
+    kapt "androidx.room:room-compiler:2.1.0"
+
     implementation appDependencies.glide
     kapt appDependencies.glideCompiler
 

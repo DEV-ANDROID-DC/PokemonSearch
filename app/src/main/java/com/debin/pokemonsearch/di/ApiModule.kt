@@ -11,7 +11,7 @@ import retrofit2.adapter.rxjava2.RxJava2CallAdapterFactory
 import retrofit2.converter.gson.GsonConverterFactory
 
 
-var logging = HttpLoggingInterceptor().setLevel(HttpLoggingInterceptor.Level.BASIC)
+var logging = HttpLoggingInterceptor().setLevel(HttpLoggingInterceptor.Level.BODY)
 
 var client = OkHttpClient.Builder()
     .addInterceptor(logging)

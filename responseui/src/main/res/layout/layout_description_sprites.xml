@@ -14,61 +14,68 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:padding="@dimen/dimen16"
-        android:text="test test test test"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toTopOf="parent"/>
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintBottom_toTopOf="@+id/rv_strips"/>
 
     <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/rv_strips"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         app:layoutManager="androidx.recyclerview.widget.GridLayoutManager"
+        app:spanCount="2"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/tv_description"/>
+        app:layout_constraintTop_toBottomOf="@+id/tv_description"
+        app:layout_constraintBottom_toBottomOf="parent"/>
 
-<!--    <ImageView-->
-<!--        android:id="@+id/back_female"-->
-<!--        android:layout_width="@dimen/dimen150"-->
-<!--        android:layout_height="@dimen/dimen150"-->
-<!--        android:background="@mipmap/ic_launcher"-->
-<!--        android:contentDescription="@string/sprite"-->
-<!--        app:layout_constraintStart_toStartOf="parent"-->
-<!--        app:layout_constraintEnd_toStartOf="@+id/front_female"-->
-<!--        app:layout_constraintTop_toBottomOf="@+id/tv_description"/>-->
+    <ProgressBar
+        android:id="@+id/progressBarForDescription"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:visibility="gone"
+        android:layout_marginEnd="@dimen/dimen32"
+        android:layout_marginRight="@dimen/dimen32"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="@id/tv_description"
+        app:layout_constraintBottom_toBottomOf="@+id/tv_description"/>
 
-<!--    <ImageView-->
-<!--        android:id="@+id/front_female"-->
-<!--        android:layout_width="@dimen/dimen150"-->
-<!--        android:layout_height="@dimen/dimen150"-->
-<!--        android:background="@mipmap/ic_launcher"-->
-<!--        android:contentDescription="@string/sprite"-->
-<!--        app:layout_constraintStart_toEndOf="@+id/back_female"-->
-<!--        app:layout_constraintTop_toBottomOf="@+id/tv_description"-->
-<!--        app:layout_constraintEnd_toEndOf="parent"/>-->
 
-<!--    <ImageView-->
-<!--        android:id="@+id/back_shiny"-->
-<!--        android:layout_width="@dimen/dimen150"-->
-<!--        android:layout_height="@dimen/dimen150"-->
-<!--        android:background="@mipmap/ic_launcher"-->
-<!--        android:layout_marginTop="@dimen/dimen16"-->
-<!--        android:contentDescription="@string/sprite"-->
-<!--        app:layout_constraintEnd_toStartOf="@+id/front_shiny"-->
-<!--        app:layout_constraintTop_toBottomOf="@+id/back_female"-->
-<!--        app:layout_constraintStart_toStartOf="parent"/>-->
+    <ProgressBar
+        android:id="@+id/progressBarForSprites"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginEnd="@dimen/dimen16"
+        android:visibility="gone"
+        android:layout_marginRight="@dimen/dimen16"
+        app:layout_constraintTop_toTopOf="@+id/rv_strips"
+        app:layout_constraintStart_toStartOf="@+id/rv_strips"
+        app:layout_constraintEnd_toEndOf="@+id/rv_strips"
+        app:layout_constraintBottom_toBottomOf="@+id/rv_strips"/>
 
-<!--    <ImageView-->
-<!--        android:id="@+id/front_shiny"-->
-<!--        android:layout_width="@dimen/dimen150"-->
-<!--        android:layout_height="@dimen/dimen150"-->
-<!--        android:layout_marginTop="@dimen/dimen16"-->
-<!--        android:background="@mipmap/ic_launcher"-->
-<!--        android:contentDescription="@string/sprite"-->
-<!--        app:layout_constraintStart_toEndOf="@+id/back_shiny"-->
-<!--        app:layout_constraintTop_toBottomOf="@+id/front_female"-->
-<!--        app:layout_constraintEnd_toEndOf="parent"/>-->
+    <TextView
+        android:id="@+id/tv_error_description"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:padding="@dimen/dimen16"
+        android:visibility="gone"
+        app:layout_constraintTop_toTopOf="@+id/tv_description"
+        app:layout_constraintStart_toStartOf="@+id/tv_description"
+        app:layout_constraintEnd_toEndOf="@+id/tv_description"
+        app:layout_constraintBottom_toBottomOf="@+id/tv_description"/>
+
+    <TextView
+        android:id="@+id/tv_error_sprites"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:padding="@dimen/dimen16"
+        android:visibility="gone"
+        app:layout_constraintTop_toTopOf="@+id/rv_strips"
+        app:layout_constraintStart_toStartOf="@+id/rv_strips"
+        app:layout_constraintEnd_toEndOf="@+id/rv_strips"
+        app:layout_constraintBottom_toBottomOf="@+id/rv_strips"/>
+
 
 </androidx.constraintlayout.widget.ConstraintLayout>
 </merge>
