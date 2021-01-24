@@ -1,7 +1,9 @@
 package com.debin.pokemonsearch.pokemonservice.data.repository
 
 import com.debin.pokemonsearch.pokemonservice.data.datasource.IPokemonDataSource
+import com.debin.pokemonsearch.pokemonservice.data.mappers.pokemonMapper.PokemonResponseEntityMapper
 import com.debin.pokemonsearch.pokemonservice.data.repository.utils.PokemonFactory
+import com.nhaarman.mockito_kotlin.any
 import com.nhaarman.mockito_kotlin.mock
 import com.nhaarman.mockito_kotlin.verify
 import io.reactivex.Single
@@ -20,11 +22,13 @@ class PokemonRepositoryTest {
 
     private lateinit var mockDataSource: IPokemonDataSource
     private lateinit var repository: PokemonRepository
+    private lateinit var entityMapper: PokemonResponseEntityMapper
 
     @Before
     fun setUp() {
         mockDataSource = mock()
-        repository = PokemonRepository(mockDataSource)
+        entityMapper = mock()
+        repository = PokemonRepository(mockDataSource, entityMapper)
     }
 
     @After
@@ -34,6 +38,8 @@ class PokemonRepositoryTest {
     @Test
     fun verifyPokemonRepository_calls_getPokemonAsync() {
         val pokemonName = PokemonFactory.getPokemonName()
+        val pokemonResponse = PokemonFactory.makePokemonResponseEntity()
+        Mockito.`when`(mockDataSource.getPokemonAsync(pokemonName)).thenReturn(Single.just(pokemonResponse))
         val pokemon = repository.getPokemon(pokemonName)
         verify(mockDataSource).getPokemonAsync(pokemonName)
     }
@@ -41,8 +47,10 @@ class PokemonRepositoryTest {
     @Test
     fun getPokemonRepositoryComplete_without_errors() {
         val pokemonName = PokemonFactory.getPokemonName()
-        val pokemonResponse = PokemonFactory.makePokemonResponse()
+        val response = PokemonFactory.makePokemonResponse()
+        val pokemonResponse = PokemonFactory.makePokemonResponseEntity()
         Mockito.`when`(mockDataSource.getPokemonAsync(pokemonName)).thenReturn(Single.just(pokemonResponse))
+        Mockito.`when`(entityMapper.mapFromRemote(pokemonResponse)).thenReturn(response)
         val testObserver = repository.getPokemon(pokemonName).toObservable().test()
         testObserver.assertComplete()
         testObserver.assertNoErrors()
@@ -61,12 +69,14 @@ class PokemonRepositoryTest {
     @Test
     fun getPokemonRepository_returns_data() {
         val pokemonName = PokemonFactory.getPokemonName()
-        val pokemonResponse = PokemonFactory.makePokemonResponse()
+        val response = PokemonFactory.makePokemonResponse()
+        val pokemonResponse = PokemonFactory.makePokemonResponseEntity()
         Mockito.`when`(mockDataSource.getPokemonAsync(pokemonName)).thenReturn(Single.just(pokemonResponse))
+        Mockito.`when`(entityMapper.mapFromRemote(pokemonResponse)).thenReturn(response)
         val testObserver = repository.getPokemon(pokemonName).toObservable().test()
         testObserver.assertComplete()
         testObserver.assertNoErrors()
         testObserver.assertNoTimeout()
-        testObserver.assertValue(pokemonResponse)
+        testObserver.assertValue(response)
     }
 }

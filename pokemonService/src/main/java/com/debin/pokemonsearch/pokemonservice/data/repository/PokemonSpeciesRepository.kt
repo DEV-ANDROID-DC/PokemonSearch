@@ -6,7 +6,7 @@ import com.debin.pokemonsearch.pokemonservice.domain.pokemonspices.PokemonSpecie
 import com.debin.pokemonsearch.pokemonservice.domain.repository.IPokemonSpeciesRepository
 import io.reactivex.Single
 
-class PokemonSpeciesRepository(private val dataSource: IPokemonSpeciesDataSource,
+open class PokemonSpeciesRepository(private val dataSource: IPokemonSpeciesDataSource,
                                private val pokemonSpeciesResponseEntityMapper: PokemonSpeciesResponseEntityMapper) : IPokemonSpeciesRepository {
     override fun getPokemonSpecies(name: String?): Single<PokemonSpeciesResponse> {
         return dataSource.getPokemonSpeciesAsync(name).map {
