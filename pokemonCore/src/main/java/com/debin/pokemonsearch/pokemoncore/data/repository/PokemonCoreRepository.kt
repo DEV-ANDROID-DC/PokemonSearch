@@ -1,6 +1,7 @@
 package com.debin.pokemonsearch.pokemoncore.data.repository
 
 import com.debin.pokemonsearch.pokemoncore.data.datasource.PokemonCoreDataSource
+import com.debin.pokemonsearch.pokemoncore.data.mappers.PokemonCoreEntityMapper
 import com.debin.pokemonsearch.pokemoncore.domain.repository.IPokemonCoreRepository
 import com.debin.pokemonsearch.pokemoncore.domain.repository.Pokemon
 

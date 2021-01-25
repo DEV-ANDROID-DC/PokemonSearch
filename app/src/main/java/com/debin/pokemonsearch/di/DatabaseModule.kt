@@ -1,8 +1,13 @@
 package com.debin.pokemonsearch.di
 
-import com.debin.pokemonsearch.framework.db.PokemonDatabaseFactory
+import androidx.room.Room
+import com.debin.pokemonsearch.framework.db.PokemonDatabase
 import org.koin.dsl.module
 
 val databaseModule = module {
-   single { PokemonDatabaseFactory.getDBInstance(get()) }
+   single {
+      Room.databaseBuilder(get(), PokemonDatabase::class.java, "PokemonDB")
+         .fallbackToDestructiveMigration()
+         .build()
+   }
 }

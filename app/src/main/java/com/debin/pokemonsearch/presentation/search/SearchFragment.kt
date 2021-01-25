@@ -6,6 +6,7 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.lifecycle.Observer
+import androidx.navigation.fragment.findNavController
 import com.debin.pokemonsearch.databinding.FragmentSearchBinding
 import com.debin.pokemonsearch.presentation.utils.Resource
 import com.debin.pokemonsearch.presentation.utils.makeSnackBar
@@ -30,6 +31,7 @@ class SearchFragment : Fragment() {
             observePokemon()
             observePokemonSpecies()
             searchEditTextClick()
+            addToFavourite()
     }
 
 
@@ -81,6 +83,7 @@ class SearchFragment : Fragment() {
     }
 
 
+
     private fun searchClick() {
         binding.searchButton.setOnClickListener {
            searchPokemon()
@@ -103,6 +106,13 @@ class SearchFragment : Fragment() {
                             frontDefault : String, frontShiny : String) : List<String> {
         return listOf(backFemale, backShinyFemale, backDefault,
             frontFemale, frontShinyFemale, backShiny, frontDefault, frontShiny)
+    }
+
+    private fun addToFavourite() {
+        binding.buttonFavourite.setOnClickListener {
+            findNavController().navigate(SearchFragmentDirections.actionSearchFragmentToFavouriteFragment())
+            viewModel.addToFavourite()
+        }
     }
 
     private fun updateDescriptionToView(description : String) {
