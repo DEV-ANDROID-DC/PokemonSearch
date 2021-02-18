@@ -7,7 +7,6 @@ import io.reactivex.Single
 
 class PokemonDataSourceImpl(private val apiService: ApiService) : IPokemonDataSource {
     override fun getPokemonAsync(name: String?): Single<PokemonResponseEntity> {
-        val result =  apiService.getPokemon(name)
-        return result
+        return apiService.getPokemon(name)
     }
 }

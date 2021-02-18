@@ -16,7 +16,7 @@ import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.launch
 import kotlinx.coroutines.withContext
 
-
+private const val TAG = "SearchViewModel"
 class SearchViewModel (private val getPokemonDescription: GetPokemonDescription,
                       private val getPokemonSprites: GetPokemonSprites,
                       private val addToFavourites: AddToFavourites) : ViewModel() {
@@ -38,10 +38,18 @@ class SearchViewModel (private val getPokemonDescription: GetPokemonDescription,
         getPokemonDescription.execute(PokemonSpeciesSubscriber(), pokemonName)
     }
 
-    fun addToFavourite() {
+    fun addPokemonToFavourite(id : Int, name : String,
+                              description : String, imageUrl : String) : Pokemon {
+      return Pokemon(id, name, description, imageUrl)
+    }
+
+    fun addToFavourite(id : Int, name : String,
+                       description : String, imageUrl : String) {
         viewModelScope.launch {
             withContext(Dispatchers.IO) {
-               addToFavourites.invokeAddToFavourites(getPokemonDetails())
+               addToFavourites.invokeAddToFavourites(addPokemonToFavourite(
+                   id, name, description, imageUrl
+               ))
             }
         }
     }
@@ -64,37 +72,6 @@ class SearchViewModel (private val getPokemonDescription: GetPokemonDescription,
         override fun onError(error: Throwable) {
             _pokemonSpecies.value = Resource.Error(error.message)
         }
-    }
-
-    private fun getPokemonDetails() : Pokemon {
-         var pokemonId = 0
-         var pokemonName = ""
-         var pokemonDescription = ""
-         var pokemonImage = ""
-        _pokemon.observeForever {
-            when(it) {
-                is Resource.Success -> {
-                    pokemonImage = it.result.sprites.front_default
-                }
-                else -> {
-
-                }
-            }
-        }
-        _pokemonSpecies.observeForever {
-            when(it) {
-                is Resource.Success -> {
-                    pokemonId = it.result.id
-                    pokemonName = it.result.name
-                    pokemonDescription = it.result.flavor_text_entries[0].flavor_text
-                }
-                else -> {
-
-                }
-            }
-        }
-
-        return Pokemon(pokemonId, pokemonName, pokemonDescription, pokemonImage)
     }
 
 

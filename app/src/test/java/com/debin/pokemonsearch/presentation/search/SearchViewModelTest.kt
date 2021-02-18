@@ -1,7 +1,9 @@
 package com.debin.pokemonsearch.presentation.search
 
+import android.content.Context
 import androidx.arch.core.executor.testing.InstantTaskExecutorRule
 import androidx.lifecycle.MediatorLiveData
+import com.debin.pokemonsearch.pokemoncore.interactors.AddToFavourites
 import com.debin.pokemonsearch.presentation.utils.Resource
 import com.debin.pokemonsearch.pokemonservice.domain.pokemon.PokemonResponse
 import com.debin.pokemonsearch.pokemonservice.domain.pokemonspices.PokemonSpeciesResponse
@@ -18,6 +20,7 @@ import org.junit.Rule
 import org.junit.Test
 import org.junit.runner.RunWith
 import org.junit.runners.JUnit4
+import org.mockito.InjectMocks
 
 @RunWith(JUnit4::class)
 class SearchViewModelTest {
@@ -25,6 +28,8 @@ class SearchViewModelTest {
     private lateinit var viewModel: SearchViewModel
     private lateinit var getPokemonDescription: GetPokemonDescription
     private lateinit var getPokemonSprites: GetPokemonSprites
+    private lateinit var addToFavourites: AddToFavourites
+
 
     @get:Rule
     val rule = InstantTaskExecutorRule()
@@ -33,7 +38,8 @@ class SearchViewModelTest {
     fun setUp() {
         getPokemonDescription = mock()
         getPokemonSprites = mock()
-        viewModel = SearchViewModel(getPokemonDescription, getPokemonSprites)
+        addToFavourites = mock()
+        viewModel = SearchViewModel(getPokemonDescription, getPokemonSprites, addToFavourites)
     }
 
     @Test

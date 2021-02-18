@@ -2,8 +2,15 @@ package com.debin.pokemonsearch.framework.core
 
 import com.debin.pokemonsearch.framework.db.PokemonDatabase
 import com.debin.pokemonsearch.framework.db.PokemonFavouriteEntity
+import com.debin.pokemonsearch.framework.mappers.asDomainModel
 import com.debin.pokemonsearch.pokemoncore.data.datasource.PokemonCoreDataSource
 import com.debin.pokemonsearch.pokemoncore.domain.repository.Pokemon
+import com.debin.pokemonsearch.pokemoncore.utils.Resource
+import com.debin.pokemonsearch.pokemoncore.utils.StateResponse
+import com.debin.pokemonsearch.pokemoncore.utils.StateResponse.Loading
+import kotlinx.coroutines.FlowPreview
+
+import kotlinx.coroutines.flow.*
 
 class PokemonCoreDataSourceImpl(private val database : PokemonDatabase) : PokemonCoreDataSource{
 
@@ -12,9 +19,12 @@ class PokemonCoreDataSourceImpl(private val database : PokemonDatabase) : Pokemo
         description = pokemon.description, imageUrl = pokemon.imageUrl))
     }
 
-    override suspend fun getFavouritePokemon(): List<Pokemon> {
-        return database.pfDao.getFavouritePokemon().map {
-          Pokemon(id = it.id, name = it.name, description = it.description, imageUrl = it.imageUrl)
+    @FlowPreview
+    override suspend fun getFavouritePokemon(): Flow<StateResponse<List<Pokemon>>> {
+        return database.pfDao.getFavouritePokemon().flatMapMerge {
+            flow {
+                emit(StateResponse.Success(it.asDomainModel()))
+            }
         }
     }
 

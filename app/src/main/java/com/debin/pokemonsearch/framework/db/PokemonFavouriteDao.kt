@@ -5,16 +5,17 @@ import androidx.room.Delete
 import androidx.room.Insert
 import androidx.room.OnConflictStrategy.REPLACE
 import androidx.room.Query
+import kotlinx.coroutines.flow.Flow
 
 @Dao
 interface PokemonFavouriteDao {
 
     @Insert(onConflict = REPLACE)
-    suspend fun addToFavourite(pokemon : PokemonFavouriteEntity)
+    fun addToFavourite(pokemon : PokemonFavouriteEntity)
 
     @Query("SELECT * from favourites")
-    suspend fun getFavouritePokemon() : List<PokemonFavouriteEntity>
+    fun getFavouritePokemon() : Flow<List<PokemonFavouriteEntity>>
 
     @Delete
-    suspend fun removeFromFavourite(pokemon : PokemonFavouriteEntity)
+    fun removeFromFavourite(pokemon : PokemonFavouriteEntity)
 }

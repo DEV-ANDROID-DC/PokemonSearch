@@ -11,6 +11,7 @@ ext {
     def testExtVersion = "1.1.2"
     def archCoreVersion = '2.1.0'
     def espressoCoreVersion = "3.3.0"
+    def espressoVersion = '3.3.0'
     def mockitoKotlinVersion = "1.5.0"
 
     def rxJavaVersion = "2.1.16"
@@ -56,6 +57,9 @@ ext {
             extJunit    : "androidx.test.ext:junit:$testExtVersion",
             mockito     : "com.nhaarman:mockito-kotlin:$mockitoKotlinVersion",
             espressoCore: "androidx.test.espresso:espresso-core:$espressoCoreVersion",
+            espressoContrib : "androidx.test.espresso:espresso-contrib:$espressoVersion",
+            espressoIntents : "androidx.test.espresso:espresso-intents:$espressoVersion",
+            espressoResource: "androidx.test.espresso:espresso-idling-resource:$espressoVersion",
             coreRuntime : "androidx.arch.core:core-runtime:$archCoreVersion",
             coreTesting : "androidx.arch.core:core-testing:$archCoreVersion"
 
