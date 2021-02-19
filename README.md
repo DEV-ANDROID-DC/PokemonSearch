@@ -2,7 +2,7 @@
 
 The App consists of two screens
 1) Search Frgament : 
-In search frgament we have optoion for search pokmon and will display the pokemon description and pokemon sprites with the help of Services library and Component UI library.
+In search frgament we have option for search pokmon and will display the pokemon description and pokemon sprites with the help of Services library and Component UI library.
 And user have the option to add the pokemon details to favaorites with the help of Add To Favourites button. 
 
 2) Favourite Fragment: 
