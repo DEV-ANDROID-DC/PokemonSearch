@@ -6,7 +6,9 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.lifecycle.Observer
+import androidx.navigation.fragment.findNavController
 import com.debin.pokemonsearch.databinding.FragmentSearchBinding
+import com.debin.pokemonsearch.pokemonservice.domain.pokemonspices.PokemonSpeciesResponse
 import com.debin.pokemonsearch.presentation.utils.Resource
 import com.debin.pokemonsearch.presentation.utils.makeSnackBar
 import org.koin.android.viewmodel.ext.android.viewModel
@@ -16,6 +18,10 @@ class SearchFragment : Fragment() {
 
     private val viewModel: SearchViewModel by viewModel()
     private lateinit var binding: FragmentSearchBinding
+    private var pokemonId = 0
+    private var pokemonName = ""
+    private var pokemonDescription = ""
+    private var pokemonImage = ""
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
@@ -30,6 +36,7 @@ class SearchFragment : Fragment() {
             observePokemon()
             observePokemonSpecies()
             searchEditTextClick()
+            addToFavourite()
     }
 
 
@@ -44,6 +51,7 @@ class SearchFragment : Fragment() {
                     hideProgressSprites()
                     hideProgressSprites()
                     val sprites = result.result.sprites
+                    pokemonImage = sprites.front_default
                     updateStripsToView(spritesList(sprites.back_female, sprites.back_shiny_female, sprites.back_default, sprites.front_female,
                               sprites.front_shiny_female, sprites.back_shiny, sprites.front_default, sprites.front_shiny))
                     showFavouriteButton()
@@ -68,6 +76,10 @@ class SearchFragment : Fragment() {
                   hideProgressDescription()
                   hideErrorDescription()
                   println("$TAG :: Description :: ${result.result.flavor_text_entries[0].flavor_text}")
+                  pokemonId = result.result.id
+                  pokemonName = result.result.name
+                  pokemonDescription = result.result.flavor_text_entries[0].flavor_text
+
                   updateDescriptionToView(result.result.flavor_text_entries[0].flavor_text)
                   showFavouriteButton()
               }
@@ -79,7 +91,6 @@ class SearchFragment : Fragment() {
           }
         })
     }
-
 
     private fun searchClick() {
         binding.searchButton.setOnClickListener {
@@ -103,6 +114,13 @@ class SearchFragment : Fragment() {
                             frontDefault : String, frontShiny : String) : List<String> {
         return listOf(backFemale, backShinyFemale, backDefault,
             frontFemale, frontShinyFemale, backShiny, frontDefault, frontShiny)
+    }
+
+    private fun addToFavourite() {
+        binding.buttonFavourite.setOnClickListener {
+            findNavController().navigate(SearchFragmentDirections.actionSearchFragmentToFavouriteFragment())
+            viewModel.addToFavourite(pokemonId, pokemonName, pokemonDescription, pokemonImage)
+        }
     }
 
     private fun updateDescriptionToView(description : String) {
