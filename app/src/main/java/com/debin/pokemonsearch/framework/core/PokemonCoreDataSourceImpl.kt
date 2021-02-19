@@ -12,6 +12,7 @@ import kotlinx.coroutines.FlowPreview
 
 import kotlinx.coroutines.flow.*
 
+private const val TAG = "PokemonCoreDataSourceImpl"
 class PokemonCoreDataSourceImpl(private val database : PokemonDatabase) : PokemonCoreDataSource{
 
     override suspend fun addPokemonToFavourites(pokemon: Pokemon) {
@@ -23,6 +24,7 @@ class PokemonCoreDataSourceImpl(private val database : PokemonDatabase) : Pokemo
     override suspend fun getFavouritePokemon(): Flow<StateResponse<List<Pokemon>>> {
         return database.pfDao.getFavouritePokemon().flatMapMerge {
             flow {
+                println("$TAG :: flat merge :: $it")
                 emit(StateResponse.Success(it.asDomainModel()))
             }
         }

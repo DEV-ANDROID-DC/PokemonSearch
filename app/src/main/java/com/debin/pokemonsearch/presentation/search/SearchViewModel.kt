@@ -38,7 +38,7 @@ class SearchViewModel (private val getPokemonDescription: GetPokemonDescription,
         getPokemonDescription.execute(PokemonSpeciesSubscriber(), pokemonName)
     }
 
-    fun addPokemonToFavourite(id : Int, name : String,
+    private fun addPokemonToFavourite(id : Int, name : String,
                               description : String, imageUrl : String) : Pokemon {
       return Pokemon(id, name, description, imageUrl)
     }
