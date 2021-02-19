@@ -28,17 +28,16 @@ Glide for loading images
 
 For Service SDK Dependencies used:
 
-kotlin   : "org.jetbrains.kotlin:kotlin-stdlib:$kotlinVersion",
-rxJava   : "io.reactivex.rxjava2:rxjava:$rxJavaVersion",
-rxAndroid: "io.reactivex.rxjava2:rxandroid:$rxAndroidVersion",
-            
+            kotlin   : "org.jetbrains.kotlin:kotlin-stdlib:$kotlinVersion",
+            rxJava   : "io.reactivex.rxjava2:rxjava:$rxJavaVersion",
+            rxAndroid: "io.reactivex.rxjava2:rxandroid:$rxAndroidVersion",
             jUnit  : "junit:junit:$junitVersion",
             mockito: "com.nhaarman:mockito-kotlin:$mockitoKotlinVersion"
             
             
 For UI Component Dependencies Used
 
-implementation 'androidx.core:core-ktx:1.3.2'
+    implementation 'androidx.core:core-ktx:1.3.2'
     implementation 'androidx.appcompat:appcompat:1.2.0'
     implementation 'androidx.constraintlayout:constraintlayout:2.0.4'
     implementation 'androidx.cardview:cardview:1.0.0
