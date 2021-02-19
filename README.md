@@ -6,7 +6,7 @@ In search frgament we have optoion for search pokmon and will display the pokemo
 And user have the option to add the pokemon details to favaorites with the help of Add To Favourites button. 
 
 2) Favourite Fragment: 
-Will show the show the favorites pokemons in recycler view
+Will show the show the favourites pokemons in recycler view
 
 The App was developed in MVVM architecture with android jetpack components to make the project lifecycle aware by following the clean code architecture 
 and added the test cases for data layer, interactors layer, framwork layer and presentation layer, And also added ViewModel testing, database testing
