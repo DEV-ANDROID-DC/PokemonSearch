@@ -1,15 +1,15 @@
 # PokemonSearch
 
 The App consists of two screens
-Search Frgament : 
+1) Search Frgament : 
 In search frgament we have optoion for search pokmon and will display the pokemon description and pokemon sprites with the help of Services library and Component UI library.
-And we have a Add to favourite button which help user to add the dispalyed pokemon deatails to favaorite database.
+And user have the option to add the pokemon details to favaorites with the help of Add To Favourites button. 
 
-Favourite Fragment: 
-Will show the show the favorites pokemons
+2) Favourite Fragment: 
+Will show the show the favorites pokemons in recycler view
 
 The App was developed in MVVM architecture with android jetpack components to make the project lifecycle aware by following the clean code architecture 
-and added the test cases for data layer, interactors layer, framworklayer and presentation layer. And also added ViewModel testing.
+and added the test cases for data layer, interactors layer, framwork layer and presentation layer, And also added ViewModel testing, database testing
 
 Technologies Used for PokemonSearch
 
@@ -29,8 +29,8 @@ Glide for loading images
 For Service SDK Dependencies used:
 
 kotlin   : "org.jetbrains.kotlin:kotlin-stdlib:$kotlinVersion",
-            rxJava   : "io.reactivex.rxjava2:rxjava:$rxJavaVersion",
-            rxAndroid: "io.reactivex.rxjava2:rxandroid:$rxAndroidVersion",
+rxJava   : "io.reactivex.rxjava2:rxjava:$rxJavaVersion",
+rxAndroid: "io.reactivex.rxjava2:rxandroid:$rxAndroidVersion",
             
             jUnit  : "junit:junit:$junitVersion",
             mockito: "com.nhaarman:mockito-kotlin:$mockitoKotlinVersion"
